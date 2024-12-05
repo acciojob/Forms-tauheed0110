@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Form from './Form';
 import FormRef from './FormRef';
 import FormState from './FormState';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <nav>
         <ul>
           <li><Link to="/form-link">Form Layout</Link></li>
@@ -15,12 +15,12 @@ function App() {
         </ul>
       </nav>
 
-      <Switch>
-        <Route path="/form" component={Form} />
-        <Route path="/form-ref" component={FormRef} />
-        <Route path="/form-state" component={FormState} />
-      </Switch>
-    </Router>
+      <Routes>
+        <Route path="/form-link" element={<Form/>} />
+        <Route path="/form-ref" element={<FormRef/>} />
+        <Route path="/form-state" element={<FormState/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
