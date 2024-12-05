@@ -1,27 +1,24 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
-import Form from './Form';
-import FormRef from './FormRef';
-import FormState from './FormState';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Form from './Form'; // Adjust the import path as needed
+import FormRef from './FormRef'; // Adjust the import path as needed
+import FormState from './FormState'; // Adjust the import path as needed
 
-function App() {
+const App = () => {
   return (
-    <BrowserRouter>
-      <nav>
-        <ul>
-          <li><Link to="/form-link">Form Layout</Link></li>
-          <li><Link to="/form-ref">Form with useRef</Link></li>
-          <li><Link to="/form-state">Form with useState</Link></li>
-        </ul>
-      </nav>
-
-      <Routes>
-        <Route path="/form-link" element={<Form/>} />
-        <Route path="/form-ref" element={<FormRef/>} />
-        <Route path="/form-state" element={<FormState/>} />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <div>
+        <Link to='/form' id='form-link'>section 1</Link><br/>
+        <Link to='/form-ref' id='form-ref-link'>section 2</Link><br/>
+        <Link to='/form-state' id='form-state-link'>section 3</Link><br/>
+        <Routes>
+          <Route path='/form' element={<Form />} />
+          <Route path='/form-ref' element={<FormRef />} />
+          <Route path='/form-state' element={<FormState />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
